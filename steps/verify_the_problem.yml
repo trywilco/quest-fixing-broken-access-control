@@ -1,6 +1,6 @@
 id: verify_the_problem
 learningObjectives:
-  - Identify the API call to remove an item comment.
+  - Identify the API call to delete an item comment.
 hints:
   - Check in the backend code where items comments are deleted.
 startFlow:

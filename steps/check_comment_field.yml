@@ -1,6 +1,6 @@
 id: check_comment_field
 learningObjectives:
-  - Learn how to check if a user is the owner of an item comment
+  - Learn how to check if a user is the author of an item comment
 hints:
   - Have a look at the Comment model and see how it relates to a user.
 startFlow:

@@ -2,13 +2,13 @@ id: fixing_broken_access_controls
 title: Fixing Broken Access Controls
 subtitle: "Secure user data: Restrict item deletion to item creators alone"
 description: In this quest, you'll be addressing a critical problem that has led
-  to some Anythink users losing their items. We suspect our delete item endpoint
+  to some Anythink users losing their items comments. We suspect our delete comment endpoint
   is being exploited. Your mission is to identify if there is indeed a problem,
-  find out what the API call to delete an item is, verify who can delete items,
+  find out what the API call to delete a comment is, verify who can delete comment,
   and fix any broken access controls.
 summary: Nice work! You learned how to identify and fix broken access controls.
-  You ensured our delete item endpoint can only be accessed by the item's
-  uploader. This adventure led you to inspect API calls, verify access rules,
+  You ensured our delete comment endpoint can only be accessed by the comment's
+  author. This adventure led you to inspect API calls, verify access rules,
   and make necessary changes via a PR.
 skills:
   - backend
