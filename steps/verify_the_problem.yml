@@ -10,7 +10,7 @@ startFlow:
         person: lucca
         messages:
           - text: "Hi there. It's Lucca. I got wind of a problem: some users are missing
-              their comment on some of their items."
+              their comment on some of their items, seems like they are being deleted by someone."
           - text: "Since you're a problem solver, why don't
               you help investigate? Start by figuring out what the API call to
               remove a comment is."
