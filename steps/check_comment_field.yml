@@ -1,0 +1,70 @@
+id: check_comment_field
+learningObjectives:
+  - Learn how to check if a user is the owner of an item comment
+hints:
+  - Have a look at the Comment model and see how it relates to a user.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Bear with me, there's more. The comment delete endpoint should only be accessible
+              by the user who uploaded the item. Can you confirm if this is the
+              case? Actually no, no bearing with is necessary. Never mind.
+          - text: Can you tell me which comment field you would use to check if the user
+              is author of the comment?
+          - components:
+              - type: form
+                form:
+                  id: check_comment_field
+                  type: single_select_form
+                  randomize: true
+                  options:
+                    - label: 'Creator'
+                      value: creator
+                    - label: 'Seller'
+                      value: seller
+                    - label: 'Owner'
+                      value: owner
+trigger:
+  type: chat_form_submitted
+  params:
+    formId: check_comment_field
+  flowNode:
+    if:
+      conditions:
+        - conditionId: text_contains_strings
+          params:
+            text: "${formSubmission}"
+            strings:
+              - seller
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: lucca
+              messages:
+                - text: "That's right! The seller field is the one you should use to check if the user is the owner of the item."
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: lucca
+              messages:
+                - text: Let's try again.
+                - components:
+                    - type: form
+                      form:
+                        id: check_comment_field
+                        type: single_select_form
+                        randomize: true
+                        options:
+                          - label: 'Creator'
+                            value: creator
+                          - label: 'Seller'
+                            value: seller
+                          - label: 'Owner'
+                            value: owner
+

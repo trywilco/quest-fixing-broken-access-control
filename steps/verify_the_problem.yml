@@ -1,0 +1,47 @@
+id: verify_the_problem
+learningObjectives:
+  - Identify the API call to remove an item comment.
+hints:
+  - Check in the backend code where items comments are deleted.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: "Hi there. It's Lucca. I got wind of a problem: some users are missing
+              their comment on some of their items."
+          - text: "Since you're a problem solver, why don't
+              you help investigate? Start by figuring out what the API call to
+              remove a comment is."
+          - text: Let's say I want to delete an item with id **item1** and comment id **comment1**. What would the API call look like?
+          - text: ":instruction[Find the API URL to remove an item comment and send it to me, (**it should start with /api**)]."
+trigger:
+  type: user_message
+  params:
+    person: lucca
+  flowNode:
+    if:
+      conditions:
+        - conditionId: text_match_regex
+          name: connection_string_prefix
+          params:
+            text: "${userMessageText}"
+            regex: "api\/items\/item1\/comments\/comment1"
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: lucca
+              messages:
+                - text: "Well done! I had faith in you."
+                  delay: 2000
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: lucca
+              messages:
+                - text: "Doesn't seem right to me, try again."
+                  delay: 2000
