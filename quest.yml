@@ -15,8 +15,8 @@ skills:
   - debugging
   - security
 steps:
-#  - verify_the_problem
-#  - check_comment_field
+  - verify_the_problem
+  - check_comment_field
   - create_pr_for_access_control
 level: intermediate
 type: tutorial
