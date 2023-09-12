@@ -10,10 +10,10 @@ startFlow:
         person: lucca
         messages:
           - text: Bear with me, there's more. The comment delete endpoint should only be accessible
-              by the user who uploaded the item. Can you confirm if this is the
+              by the user who commented on the item. Can you confirm if this is the
               case? Actually no, no bearing with is necessary. Never mind.
           - text: Can you tell me which comment field you would use to check if the user
-              is author of the comment?
+              is the author of the comment?
           - components:
               - type: form
                 form:
@@ -21,8 +21,8 @@ startFlow:
                   type: single_select_form
                   randomize: true
                   options:
-                    - label: 'Creator'
-                      value: creator
+                    - label: 'Author'
+                      value: author
                     - label: 'Seller'
                       value: seller
                     - label: 'Owner'
@@ -45,7 +45,7 @@ trigger:
             params:
               person: lucca
               messages:
-                - text: "That's right! The seller field is the one you should use to check if the user is the owner of the item."
+                - text: "That's right! The seller field is the one you should use to check if the user is the author of the comment."
           - actionId: finish_step
       else:
         do:

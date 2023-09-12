@@ -2,7 +2,7 @@ id: create_pr_for_access_control
 learningObjectives:
   - Fix access controls and open a PR.
 hints:
-  - Verifying the item seller user IDs before deletion.
+  - Verifying the comment seller user IDs before deletion.
   - Make sure you return a status code of 403 if the user is not the author of the comment.
 startFlow:
   do:
@@ -11,11 +11,11 @@ startFlow:
         person: lucca
         messages:
           - text: I appreciate you sticking out thus far.
-          - text: If access controls are indeed broken, I'm going to need you to fix them. Start a PR and make it
-              so only item uploaders can delete their items.
+          - text: If access controls are indeed broken, I'm going to need you to fix them. Create a new PR and make it
+              so only comment authors can delete their comments.
           - text: If you complete this, Ness might bake you a cake. Or maybe not, but you'll have
               her gratitude for sure.
-          - text: Let's make sure that only items that the user owns can be deleted and if not return a **status code of 403**, :instruction[Open a PR with those changes and I'll review it.]
+          - text: Let's make sure that only comments that the user wrote can be deleted and if not return a **status code of 403**, :instruction[Open a PR with those changes and I'll review it.]
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
