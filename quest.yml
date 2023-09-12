@@ -1,6 +1,6 @@
 id: fixing_broken_access_controls
 title: Fixing Broken Access Controls
-subtitle: "Secure user data: Restrict item deletion to item creators alone"
+subtitle: "Secure user data: Restrict comment deletion to item authors alone"
 description: In this quest, you'll be addressing a critical problem that has led
   to some Anythink users losing their items comments. We suspect our delete comment endpoint
   is being exploited. Your mission is to identify if there is indeed a problem,
