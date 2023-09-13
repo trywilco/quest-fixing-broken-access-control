@@ -38,11 +38,11 @@ const createItem = async (client) => {
   return itemRes.data?.item;
 };
 
-const createComment = async (client, itemId) => {
+const createComment = async (client, itemId, body) => {
   const comment = {
-    body: "comment",
+    body,
   };
-  const commentRes = await client.post(`/api/items/${itemId}/comments`, comment);
+  const commentRes = await client.post(`/api/items/${itemId}/comments`, { comment });
   return commentRes.data?.comment;
 }
 
@@ -64,7 +64,7 @@ const testItem = async () => {
   const userClientA = await createUserClient('userA');
 
   const itemA = await createItem(userClientA);
-  const commentA = await createComment(userClientA, itemA.slug);
+  const commentA = await createComment(userClientA, itemA.slug, "comment1");
 
   try {
     await removeComment(userClientA, itemA.slug, commentA.id);
@@ -74,14 +74,13 @@ const testItem = async () => {
     return false;
   }
 
-  const itemB = await createItem(userClientA);
   const userClientB = await createUserClient('userB');
-  const commentB = await createComment(userClientA, itemB.slug);
+  const commentB = await createComment(userClientA, itemA.slug, "comment2");
 
   let error;
 
   try {
-    await removeComment(userClientB, itemB.slug, commentB.id);
+    await removeComment(userClientB, itemA.slug, commentB.id);
   } catch (err) {
     error = err;
   }
@@ -103,5 +102,9 @@ testItem()
   .then((res) => process.exit(res ? 0 : 1))
   .catch((e) => {
     console.log("error while checking api: " + e);
+    console.log({
+      e,
+      responseErrors: e?.response?.data?.errors
+    });
     process.exit(1);
   });
