@@ -28,7 +28,7 @@ const createItem = async (client) => {
     item: {
       title: "title",
       description: "description",
-      tag_list: ["tag1"],
+      tagList: ["tag1"],
       image: "",
       comments: [],
     },

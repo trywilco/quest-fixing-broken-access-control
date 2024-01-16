@@ -22,3 +22,9 @@ level: intermediate
 type: tutorial
 duration: 1.5
 repository: https://github.com/trywilco/Anythink-Market-Public
+frameworks:
+  backend:
+    - python
+    - node
+    - rails
+    - java
