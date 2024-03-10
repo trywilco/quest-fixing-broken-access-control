@@ -19,7 +19,6 @@ steps:
   - check_comment_field
   - create_pr_for_access_control
 level: intermediate
-type: tutorial
 duration: 1.5
 repository: https://github.com/trywilco/Anythink-Market-Public
 frameworks:
